@@ -40,7 +40,6 @@ public class PerbandinganInput {
         this.umur = Integer.parseInt(br.readLine()); // harus onversi String ke int
     }
 
-    // menampilkan data
     public void tampilkanData() {
         System.out.println("Data Hasil Input \nNama: " + nama + " | Umur: " + umur + " tahun\n");
     }

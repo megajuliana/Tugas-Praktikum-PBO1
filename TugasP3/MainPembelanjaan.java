@@ -5,43 +5,30 @@
 package TugasP3;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
  *
  * @author ThinkPad
  */
-
 public class MainPembelanjaan {
-    public static void main(String[] args) throws IOException{
-        Scanner input = new Scanner(System.in);
-        Pembelanjaan belanjaInput = new Pembelanjaan();
-        String namaFile = "data_pembelanjaan.dat";
+    public static void main(String[] args) throws IOException {
+        DataInputStream input = new DataInputStream(System.in);
 
-        System.out.println("INPUT DATA PEMBELANJAAN");
-        System.out.print("Nama          : ");
-        belanjaInput.nama = input.nextLine();
+        Pembelanjaan p = new Pembelanjaan();
 
-        System.out.print("Total Belanja : ");
-        belanjaInput.totalBelanja = input.nextDouble();
+        System.out.print("Nama: ");
+        p.nama = input.readLine();
 
-        System.out.print("Diskon(%)    : ");
-        belanjaInput.diskonPersen = input.nextDouble();
+        System.out.print("Total Belanja: ");
+        p.totalBelanja = Double.parseDouble(input.readLine());
 
-        System.out.print("Bayar         : ");
-        belanjaInput.bayar = input.nextDouble();
+        System.out.print("Diskon (%): ");
+        p.diskonPersen = Double.parseDouble(input.readLine());
 
-        // mnulis data ke file pake DataOutputStream
-        belanjaInput.simpanDataKeFile(namaFile);
-        System.out.println("\n[Sistem] Data berhasil disimpan ke file '" + namaFile + "' via DataOutputStream!");
+        System.out.print("Bayar: ");
+        p.bayar = Double.parseDouble(input.readLine());
 
-        // baca data dari file pake DataInputStream
-        Pembelanjaan belanjaOutput = new Pembelanjaan();
-        belanjaOutput.bacaDataDariFile(namaFile);
-        System.out.println("[Sistem] Data berhasil dibaca dari file '" + namaFile + "' via DataInputStream!");
-
-        // nota hasil hitung
-        belanjaOutput.tampilkanNota();
-
-    }
+        System.out.println("Total setelah diskon: Rp " + p.hitungTotalAkhir());
+        System.out.println("Kembalian: Rp " + p.hitungKembalian());
+    }      
 }

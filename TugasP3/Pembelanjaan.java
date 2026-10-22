@@ -50,7 +50,7 @@ public class Pembelanjaan {
     }
 
     // tampil nota belanja
-    public void tampilkanNota() {
+    public void tampilkanNota() { 
         System.out.println("NOTA PEMBELANJAAN");
         System.out.println("Nama          : " + nama);
         System.out.println("Total Belanja : Rp " + totalBelanja);
